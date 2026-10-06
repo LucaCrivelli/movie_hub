@@ -1,0 +1,32 @@
+body {
+    background-color: #141414;
+    color: #f1f1f1;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.movie-card {
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-poster {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.movie-title {
+    font-size: 0.9rem;
+    margin-top: 8px;
+    color: #f1f1f1;
+}

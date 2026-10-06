@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Risultati ricerca{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="btn btn-outline-light btn-sm mb-4">← Indietro</a>
+
+<form action="/search" method="get" class="d-flex mb-4">
+    <input type="text" name="q" class="form-control me-2" placeholder="Cerca un film..." value="{{ query }}" required>
+    <button type="submit" class="btn btn-danger">Cerca</button>
+</form>
+
+<h4 class="mb-4">Risultati per: "{{ query }}"</h4>
+
+<div id="search-results" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+    <p>Caricamento...</p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //se la riga sottostante viene segnata con degli errori, nono sono errori, tojson serve per gestire correttamente le ' nei titoli
+    const searchQuery = {{ query | tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

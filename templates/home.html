@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Movie Hub - Home{% endblock %}
+
+{% block content %}
+
+<form action="/search" method="get" class="d-flex mb-5">
+    <input type="text" name="q" class="form-control me-2" placeholder="Cerca un film..." required>
+    <button type="submit" class="btn btn-danger">Cerca</button>
+</form>
+
+<h4 class="mb-4">Film in evidenza</h4>
+{% if movies %}
+    <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+        {% for movie in movies %}
+            <div class="col">
+                <a href="/movie/{{ movie.imdb_id }}" class="movie-card">
+                    <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster"
+                         onerror="this.closest('.col').style.display='none';">
+                    <div class="movie-title">{{ movie.title }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center py-5">
+        <p> Impossibile caricare i film in evidenza al momento. Riprova più tardi.</p>
+    </div>
+{% endif %}
+
+{% endblock %}

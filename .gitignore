@@ -1,0 +1,20 @@
+# Ambiente virtuale
+.venv/
+venv/
+
+# Variabili d'ambiente (contiene la chiave segreta, NON va su git)
+.env
+
+# Database (dati generati, di solito non si versiona)
+database.db
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# VS Code (opzionale, alcuni preferiscono tenerlo)
+.vscode/
